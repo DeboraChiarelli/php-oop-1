@@ -16,5 +16,14 @@ class Serie extends Production {
     public function setSeason($season) {
         $this->season = $season;
     }
+    // Il metodo printInfo() della classe Serie estende il comportamento dello stesso metodo nella classe Production. 
+    // Prima di aggiungere informazioni specifiche di Serie, chiama parent::printInfo(); per stampare le informazioni comuni. 
+    // Successivamente, stampa le informazioni specifiche di Serie, season. Questo approccio sfrutta il concetto di ereditarietà e polimorfismo, 
+    // permettendo a ciascuna classe di contribuire al comportamento comune in modo flessibile.
+    // Con questa chiamata si esegue il codice presente nel metodo printInfo() della classe Production. Quindi, vengono stampate le informazioni comuni a tutte le produzioni.
+    public function printInfo() {
+        parent::printInfo(); // parent::printInfo(); chiama il metodo printInfo() della classe genitore (Production in questo caso).
+        echo "Season: " . $this->getSeason() . "<br>"; // "Season: " . $this->getSeason() concatena la stringa "Season: " con il valore restituito dal metodo getSeason() dell'oggetto corrente ($this si riferisce all'istanza corrente di Serie).
+    }
 }
 ?>

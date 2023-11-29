@@ -22,5 +22,14 @@ class Movie extends Production {
     public function setDuration($duration) {
         $this->duration = $duration;
     }
+    // Il metodo printInfo() della classe Movie estende il comportamento dello stesso metodo nella classe Production. 
+    // Prima di aggiungere informazioni specifiche di Movie, chiama parent::printInfo(); per stampare le informazioni comuni. 
+    // Successivamente, stampa le informazioni specifiche di Movie come profitto e durata. Questo approccio sfrutta il concetto di ereditarietà e polimorfismo, 
+    // permettendo a ciascuna classe di contribuire al comportamento comune in modo flessibile.
+    // Con questa chiamata si esegue il codice presente nel metodo printInfo() della classe Production. Quindi, vengono stampate le informazioni comuni a tutte le produzioni.
+    public function printInfo() {
+        parent::printInfo(); // parent::printInfo(); chiama il metodo printInfo() della classe genitore (Production in questo caso).
+        echo "Profit: " . $this->getProfit() . " Duration: " . $this->getDuration() . "<br>"; // "Profit: " . $this->getProfit() concatena la stringa "Profit: " con il valore restituito dal metodo getProfit() dell'oggetto corrente ($this si riferisce all'istanza corrente di Movie). " Duration: " . $this->getDuration() concatena la stringa " Duration: " con il valore restituito dal metodo getDuration() dell'oggetto corrente.
+    }
 }
 ?>

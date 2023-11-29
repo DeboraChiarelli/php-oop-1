@@ -22,9 +22,9 @@ Quindi stampate l’elenco di movie e serie nel template che avete fatto ieri, m
 
 <?php
 // Includo le classi
-require_once __DIR__ . 'Models/Production.php';
-require_once __DIR__ . 'Models/Movie.php';
-require_once __DIR__ . 'Models/Serie.php';
+require_once  __DIR__  . '/Models/Production.php';
+require_once  __DIR__  . '/Models/Movie.php';
+require_once  __DIR__  . '/Models/Serie.php';
 
 // Creo istanze di Movie
 $oppenheimer = new Movie('Oppenheimer',["English", "Italian", "Spanish"],'9.0', '€100M', '120 min');
@@ -44,12 +44,7 @@ $productions = [$oppenheimer, $gatsby, $harrypotter, $inception, $shutterisland,
 // Stampo le informazioni comuni
 // Itero attraverso l'array $productions, che contiene istanze di oggetti di tipo Movie e Serie. La variabile $production assumerà il valore di ciascun elemento durante ogni iterazione.
 foreach ($productions as $production) {
-    echo $production->getInfo() . "<br>"; // stampo le informazioni comuni chiamando il metodo getInfo() di ciascun oggetto $production. Questo metodo restituisce una stringa contenente il titolo, le lingue e il rating dell'oggetto, come definito nella classe Production.
-    if ($production instanceof Movie) { // Se $production è un'istanza di Movie, eseguirà il blocco di codice all'interno di if.
-        echo "Profit: " . $production->getProfit() . " Duration: " . $production->getDuration() . "<br>"; // Se $production è un'istanza di Movie, stampo il profitto e la durata. Per farlo utilizzo i metodi getProfit() e getDuration() della classe Movie.
-    } elseif ($production instanceof Serie) { // Se è un'istanza di Serie, eseguirà il blocco di codice all'interno di elseif.
-        echo "Season: " . $production->getSeason() . "<br>"; // Se $production è un'istanza di Serie, stai stampo la stagione, utilizzando il metodo getSeason() della classe Serie.
-    }
-    echo "<br>"; // Inserisco riga vuota per separare le informazioni.
+    $production->printInfo(); // Questo metodo è stato definito all'interno delle classi Movie e Serie. Secondo il polimorfismo, se $production è un oggetto di tipo Movie, il metodo printInfo() di Movie sarà chiamato; se è un oggetto di tipo Serie, sarà chiamato il metodo printInfo() di Serie. All'interno del metodo printInfo(), vengono stampate le informazioni comuni e specifiche di ciascuna classe.
+    echo "<br>";
 }
 ?>
