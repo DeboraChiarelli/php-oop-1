@@ -10,7 +10,7 @@ Creare un layout completo per stampare a schermo una lista di movies.  -->
 
 <?php
 // Dichiarazione della classe
-class Movie{
+class Production{
 
     public $title; // dichiarazione di tre proprietà pubbliche della classe Movie
     public $language;
