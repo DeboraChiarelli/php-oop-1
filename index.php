@@ -12,6 +12,7 @@ Creare un layout completo per stampare a schermo una lista di movies.  -->
 // Includo le classi
 require_once __DIR__ . 'Models/Production.php';
 require_once __DIR__ . 'Models/Movie.php';
+require_once __DIR__ . 'Models/Serie.php';
 // Chiamo getInfo su un oggetto Movie
 $oppenheimer = new Production('Oppenheimer',["English", "Italian", "Spanish"],'9.0');
 echo $oppenheimer->getMovie();
