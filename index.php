@@ -31,9 +31,9 @@ class Production{
 
 }
 // Chiamo getMovie su un oggetto Movie
-$oppenheimer = new Movie('Oppenheimer',["English", "Italian", "Spanish"],'9.0');
+$oppenheimer = new Production('Oppenheimer',["English", "Italian", "Spanish"],'9.0');
 echo $oppenheimer->getMovie();
 
-$gatsby = new Movie('Il Grande Gatsby',["English", "Italian", "Spanish"],'8.5');
+$gatsby = new Production('Il Grande Gatsby',["English", "Italian", "Spanish"],'8.5');
 echo $gatsby->getMovie();
 ?>
