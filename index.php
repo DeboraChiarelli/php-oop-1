@@ -28,9 +28,7 @@ require_once __DIR__ . 'Models/Serie.php';
 
 // Creo istanze di Movie
 $oppenheimer = new Movie('Oppenheimer',["English", "Italian", "Spanish"],'9.0', '€100M', '120 min');
-echo $oppenheimer->getInfo();
 $gatsby = new Movie('Il Grande Gatsby',["English", "Italian", "Spanish"],'8.5', '€150M', '110 min');
-echo $gatsby->getInfo();
 $harrypotter = new Movie('Harry Potter',["English", "Italian", "Spanish"] , '9.0', '€200M', '130 min');
 $inception = new Movie('Inception',["English", "Italian", "Spanish"] , '8.5', '€120M', '100 min');
 $shutterisland = new Movie('Shutter Island',["English", "Italian", "Spanish"] , '7.8', '€180M', '115 min');
@@ -40,4 +38,18 @@ $breakingbad = new Serie('Breaking Bad',["English", "Italian", "Spanish"] , '8.3
 $bettercallsaul = new Serie('Better Call Saul',["English", "Italian", "Spanish"] , '8.8', 6);
 $theoffice = new Serie('The Office',["English", "Italian", "Spanish"] , '7.2', 9);
 $peakyblinders = new Serie('Peaky Blinders',["English", "Italian", "Spanish"] , '8.9', 6);
+
+// Inserisco tutte le istanze in un array
+$productions = [$oppenheimer, $gatsby, $harrypotter, $inception, $shutterisland, $bigbangtheory, $breakingbad, $bettercallsaul, $theoffice, $peakyblinders];
+// Stampo le informazioni comuni
+// Itero attraverso l'array $productions, che contiene istanze di oggetti di tipo Movie e Serie. La variabile $production assumerà il valore di ciascun elemento durante ogni iterazione.
+foreach ($productions as $production) {
+    echo $production->getInfo() . "<br>"; // stampo le informazioni comuni chiamando il metodo getInfo() di ciascun oggetto $production. Questo metodo restituisce una stringa contenente il titolo, le lingue e il rating dell'oggetto, come definito nella classe Production.
+    if ($production instanceof Movie) { // Se $production è un'istanza di Movie, eseguirà il blocco di codice all'interno di if.
+        echo "Profit: " . $production->getProfit() . " Duration: " . $production->getDuration() . "<br>"; // Se $production è un'istanza di Movie, stampo il profitto e la durata. Per farlo utilizzo i metodi getProfit() e getDuration() della classe Movie.
+    } elseif ($production instanceof Serie) { // Se è un'istanza di Serie, eseguirà il blocco di codice all'interno di elseif.
+        echo "Season: " . $production->getSeason() . "<br>"; // Se $production è un'istanza di Serie, stai stampo la stagione, utilizzando il metodo getSeason() della classe Serie.
+    }
+    echo "<br>"; // Inserisco riga vuota per separare le informazioni.
+}
 ?>
